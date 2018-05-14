@@ -18,6 +18,7 @@ import './errorLog' // error log
 import './permission' // permission control
 import './mock' // simulation data
 import './public'
+import { getRequest, postRequest, deleteRequest, putRequest } from './utils/request'
 
 import * as filters from './filters' // global filters
 import VueParticles from 'vue-particles'
@@ -28,6 +29,11 @@ Vue.use(Element, {
 })
 
 Vue.use(VueParticles)
+
+Vue.prototype.getRequest = getRequest
+Vue.prototype.postRequest = postRequest
+Vue.prototype.deleteRequest = deleteRequest
+Vue.prototype.putRequest = putRequest
 
 // register global utility filters.
 Object.keys(filters).forEach(key => {

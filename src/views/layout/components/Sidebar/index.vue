@@ -3,7 +3,7 @@
     <div class="logo-layout">
       <a href="#/">
         <img align="left" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
-        <h1>Cloudolp</h1>
+        <h1>Waoh UC</h1>
       </a>
     </div>
     <el-menu mode="vertical" :default-active="$route.path" :collapse="isCollapse" background-color="#001529" text-color="#bfcbd9" active-text-color="#409EFF">

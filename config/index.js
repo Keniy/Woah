@@ -11,25 +11,18 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-        '/api/': {
-            target: 'http://localhost:8080',
+        '/api': {
+            target: 'http://localhost:8090',
             changeOrigin: true,
             pathRewrite: {
-                '^/api': '/api'
+                '^/api': ''
             }
-        },
-      '/foundation/': {
-        target: 'http://foundation.dev.cloudolp.com', //这个路径是我代理到本地tp框架里面
-        changeOrigin: true,    //开启代理
-        pathRewrite: {
-          '^/foundation': '/foundation'//这里重写路径/run就代理到对应地址
-        },
-      },
+        }
     },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
-    port: 1000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    port: 1001, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: false,
@@ -48,7 +41,7 @@ module.exports = {
      */
 
     // https://webpack.js.org/configuration/devtool/#development
-    devtool: 'eval-source-map',
+    devtool: '#cheap-source-map',
 
     // If you have problems debugging vue-files in devtools,
     // set this to false - it *may* help

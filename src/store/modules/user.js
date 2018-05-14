@@ -17,6 +17,9 @@ const user = {
   },
 
   mutations: {
+    SET_USER: (state, user) => {
+      state.user = user
+    },
     SET_CODE: (state, code) => {
       state.code = code
     },

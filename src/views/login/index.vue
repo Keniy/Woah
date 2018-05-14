@@ -34,6 +34,7 @@
   </div>
 </template>
 <script>
+import { getToken, setToken, removeToken } from '@/utils/auth'
 export default{
   name: 'login',
   data () {
@@ -52,19 +53,33 @@ export default{
   },
   methods: {
     submitClick: function () {
+      console.log(123)
       var _this = this
       this.$refs['loginForm'].validate((valid) => {
         if (valid) {
           console.log('submit')
           this.loading = true
-          this.postRequest('/login', {
+          this.postRequest('/api/login', {
             username: this.loginForm.username,
             password: this.loginForm.password
           }).then(resp => {
-            _this.loading = false
+            this.loading = false
             if (resp && resp.status === 200) {
-              var data = resp.data
+              let data = resp.data
+              console.log('token', data.msg.token);
+              const roles = []
+              data.msg.roles.filter((r) => {
+                if(!roles.includes(r.name)) {
+                  roles.push(r.name)
+                }
+              })
+              this.$store.commit('SET_AVATAR', data.msg.userface);
+              this.$store.commit('SET_TOKEN', data.msg.token); 
+              this.$store.commit('SET_ROLES', roles);
+              setToken(data.msg.token);
               this.$router.push({ path: '/' })
+            } else {
+              this.loading = true;
             }
           })
         }
@@ -75,7 +90,7 @@ export default{
 </script>
 <style>
   body {
-    background-image: url('../../assets/image/p_02.jpg');
+    /*background-image: url('../../assets/image/p_02.jpg');*/
   }
   .login-container {
     position: absolute;
