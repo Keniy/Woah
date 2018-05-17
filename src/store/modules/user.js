@@ -1,5 +1,6 @@
 import { loginByUsername, logout, getUserInfo } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
+import { getRequest, postRequest, deleteRequest, putRequest } from '@/utils/request'
 
 const user = {
   state: {
@@ -65,16 +66,17 @@ const user = {
     // 获取用户信息
     GetUserInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
-        getUserInfo(state.token).then(response => {
-          if (!response.data) { // 由于mockjs 不支持自定义状态码只能这样hack
+        postRequest('/api/user/getUserInfo', { 'token' : state.token }).then(( resp ) => {
+          console.log(resp)
+          if (!resp.data) {
             reject('error')
           }
-          const data = response.data
+          const data = resp.data
           commit('SET_ROLES', data.roles)
           commit('SET_NAME', data.name)
-          commit('SET_AVATAR', data.avatar)
-          commit('SET_INTRODUCTION', data.introduction)
-          resolve(response)
+          commit('SET_AVATAR', data.userface)
+          commit('SET_INTRODUCTION', data.nickname)
+          resolve(resp)
         }).catch(error => {
           reject(error)
         })

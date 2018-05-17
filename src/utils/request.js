@@ -77,7 +77,9 @@ export const postRequest = (url, params) => {
     transformRequest: [function (data) {
       let ret = ''
       for (let it in data) {
-        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+        const value = data[it]
+        if(value !== undefined && value !== '' && value !== null)
+          ret += encodeURIComponent(it) + '=' + encodeURIComponent(value) + '&'
       }
       return ret
     }],
@@ -104,7 +106,9 @@ export const putRequest = (url, params) => {
     transformRequest: [function (data) {
       let ret = ''
       for (let it in data) {
-        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+        const value = data[it]
+        if(value !== undefined && value !== '' && value !== null)
+          ret += encodeURIComponent(it) + '=' + encodeURIComponent(value) + '&'
       }
       return ret
     }],

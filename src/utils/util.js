@@ -25,6 +25,27 @@ export default class Util {
   }
 
   /**
+   * 复制对象或数组
+   * @param obj
+   * @returns {*}
+   */
+  copy(obj) {
+    var str, newobj = obj.constructor === Array ? [] : {};
+    if (typeof obj !== 'object') {
+      return;
+    } else if (window.JSON) {
+      str = JSON.stringify(obj), //系列化对象
+        newobj = JSON.parse(str); //还原
+    } else {
+      for (var i in obj) {
+        newobj[i] = typeof obj[i] === 'object' ?
+          cloneObj(obj[i]) : obj[i];
+      }
+    }
+    return newobj;
+  }
+
+  /**
      * 判断一个数组的某个属性是否包含和这个字符串相等的内容
      * @param array 数组
      * @param attr 数组属性

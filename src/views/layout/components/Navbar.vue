@@ -13,9 +13,9 @@
 
       <lang-select class="international right-menu-item"></lang-select>
 
-      <el-tooltip effect="dark" :content="$t('navbar.theme')" placement="bottom">
+      <!-- <el-tooltip effect="dark" :content="$t('navbar.theme')" placement="bottom">
         <theme-picker class="theme-switch right-menu-item"></theme-picker>
-      </el-tooltip>
+      </el-tooltip> -->
 
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">
@@ -50,6 +50,7 @@ import ErrorLog from '@/components/ErrorLog'
 import LangSelect from '@/components/LangSelect'
 import ThemePicker from '@/components/ThemePicker'
 import Screenfull from '@/components/Screenfull'
+import { removeToken } from '@/utils/auth'
 
 export default {
   components: {
@@ -72,9 +73,10 @@ export default {
       this.$store.dispatch('toggleSideBar')
     },
     logout() {
-      this.$store.dispatch('LogOut').then(() => {
-        location.reload()// In order to re-instantiate the vue-router object to avoid bugs
-      })
+      this.$store.commit('SET_TOKEN', '')
+      this.$store.commit('SET_ROLES', '')
+      removeToken()
+      location.reload()
     }
   }
 }

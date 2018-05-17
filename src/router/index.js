@@ -33,13 +33,16 @@ export const constantRouterMap = [
     path: '',
     component: Layout,
     redirect: 'dashboard',
+    iconCls: 'dashboard',
     meta: { title: 'dashboard', icon: 'dashboard', noCache: true },
     children: [{
       path: 'dashboard',
       component: _import('dashboard/index'),
       name: 'dashboard',
+      iconCls: 'dashboard',
       meta: { title: 'dashboard', icon: 'dashboard', noCache: true }
-    }]
+    }
+    ]
   }
 ]
 
@@ -48,69 +51,3 @@ export default new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })
-
-export const asyncRouterMap = [
-  // {
-  //   path: '/example',
-  //   component: Layout,
-  //   redirect: '/example/table/complex-table',
-  //   name: 'example',
-  //   meta: {
-  //     title: 'example',
-  //     icon: 'example'
-  //   },
-  //   children: [
-  //     {
-  //       path: '/example/table',
-  //       component: _import('dashboard/index'),
-  //       redirect: '/example/table/complex-table',
-  //       name: 'Table',
-  //       meta: {
-  //         title: 'Table',
-  //         icon: 'table'
-  //       },
-  //       children: [
-  //         { path: 'dynamic-table', component: _import('dashboard/index'), name: 'dynamicTable', meta: { title: 'dynamicTable' }},
-  //         { path: 'drag-table', component: _import('dashboard/index'), name: 'dragTable', meta: { title: 'dragTable' }},
-  //         { path: 'inline-edit-table', component: _import('dashboard/index'), name: 'inlineEditTable', meta: { title: 'inlineEditTable' }},
-  //         { path: 'tree-table', component: _import('dashboard/index'), name: 'treeTableDemo', meta: { title: 'treeTable' }},
-  //         { path: 'custom-tree-table', component: _import('dashboard/index'), name: 'customTreeTableDemo', meta: { title: 'customTreeTable' }},
-  //         { path: 'complex-table', component: _import('dashboard/index'), name: 'complexTable', meta: { title: 'complexTable' }}
-  //       ]
-  //     },
-  //     { path: 'tab/index', icon: 'tab', component: _import('dashboard/index'), name: 'tab', meta: { title: 'tab' }}
-  //   ]
-  // },
-  // {
-  //   path: '/example1',
-  //   component: Layout,
-  //   redirect: '/example1/table/complex-table',
-  //   name: 'example1',
-  //   meta: {
-  //     title: 'example1',
-  //     icon: 'example'
-  //   },
-  //   children: [
-  //     {
-  //       path: '/example1/table',
-  //       component: _import('dashboard/index'),
-  //       redirect: '/example1/table/complex-table',
-  //       name: 'Table',
-  //       meta: {
-  //         title: 'Table',
-  //         icon: 'table'
-  //       },
-  //       children: [
-  //         { path: 'dynamic-table', component: _import('dashboard/index'), name: 'dynamicTable', meta: { title: 'dynamicTable' }},
-  //         { path: 'drag-table', component: _import('dashboard/index'), name: 'dragTable', meta: { title: 'dragTable' }},
-  //         { path: 'inline-edit-table', component: _import('dashboard/index'), name: 'inlineEditTable', meta: { title: 'inlineEditTable' }},
-  //         { path: 'tree-table', component: _import('dashboard/index'), name: 'treeTableDemo', meta: { title: 'treeTable' }},
-  //         { path: 'custom-tree-table', component: _import('dashboard/index'), name: 'customTreeTableDemo', meta: { title: 'customTreeTable' }},
-  //         { path: 'complex-table', component: _import('dashboard/index'), name: 'complexTable', meta: { title: 'complexTable' }}
-  //       ]
-  //     },
-  //     { path: 'tab/index', icon: 'tab', component: _import('dashboard/index'), name: 'tab', meta: { title: 'tab' }}
-  //   ]
-  // },
-  { path: '*', redirect: '/404', hidden: true }
-]

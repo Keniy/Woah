@@ -1,6 +1,14 @@
 export default {
   route: {
-    dashboard: '首页'
+    dashboard: '首页',
+    user: {
+      info: '用户管理',
+      list: '用户列表'
+    },
+    system: {
+      manager: '系统管理',
+      list: '基础设置'
+    }
   },
   navbar: {
     logOut: '退出登录',
@@ -20,7 +28,32 @@ export default {
   },
   errorLog: {
     tips: '请点击右上角bug小图标',
-    description: '现在的管理后台基本都是spa的形式了，它增强了用户体验，但同时也会增加页面出问题的可能性，可能一个小小的疏忽就导致整个页面的死锁。好在 Vue 官网提供了一个方法来捕获处理异常，你可以在其中进行错误处理或者异常上报。',
     documentation: '文档介绍'
+  },
+  table: {
+    search: '搜索',
+    add: '添加',
+    export: '导出',
+    status: '状态',
+    actions: '操作',
+    edit: '编辑',
+    delete: '删除',
+    cancel: '取 消',
+    confirm: '确 定',
+    code: '编号',
+    remark: '备注',
+    select: '请选择',
+    input: '请输入',
+    enabled: '启用',
+    disabled: '禁用',
+    reset: '重置'
+  },
+  userlist: {
+    name: '用户姓名',
+    nickname: '用户昵称',
+    telephone: '手机',
+    email: '邮箱',
+    address: '地址',
+    userface: '用户头像'
   }
 }

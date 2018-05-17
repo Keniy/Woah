@@ -35,6 +35,7 @@
 </template>
 <script>
 import { getToken, setToken, removeToken } from '@/utils/auth'
+import MenuUtils from '@/utils/MenuUtils'
 export default{
   name: 'login',
   data () {
@@ -53,7 +54,6 @@ export default{
   },
   methods: {
     submitClick: function () {
-      console.log(123)
       var _this = this
       this.$refs['loginForm'].validate((valid) => {
         if (valid) {
@@ -73,10 +73,11 @@ export default{
                   roles.push(r.name)
                 }
               })
-              this.$store.commit('SET_AVATAR', data.msg.userface);
-              this.$store.commit('SET_TOKEN', data.msg.token); 
-              this.$store.commit('SET_ROLES', roles);
-              setToken(data.msg.token);
+              this.$store.commit('SET_AVATAR', data.msg.userface)
+              this.$store.commit('SET_TOKEN', data.msg.token)
+              this.$store.commit('SET_ROLES', roles)
+              setToken(data.msg.token)
+              MenuUtils(this.$store.commit)
               this.$router.push({ path: '/' })
             } else {
               this.loading = true;
