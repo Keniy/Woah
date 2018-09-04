@@ -8,6 +8,7 @@
           <span slot="title" v-if="item.children[0].name">{{generateTitle(item.children[0].name)}}</span>
         </el-menu-item>
       </router-link>
+      
 
       <el-submenu v-else :index="item.name||item.path" :key="item.name">
         <template slot="title">

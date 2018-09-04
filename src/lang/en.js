@@ -55,5 +55,13 @@ export default {
     email: 'Email',
     address: 'Address',
     userface: 'Avatar'
+  },
+  menulist: {
+    name: 'MenuCode',
+    nameZh: 'MenuZH',
+    path: 'Path',
+    component: 'Component',
+    iconCls: 'Icon',
+    parent: 'ParentId'
   }
 }

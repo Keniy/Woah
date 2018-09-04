@@ -8,6 +8,12 @@ export default {
     system: {
       manager: '系统管理',
       list: '基础设置'
+    },
+    menu: {
+      list: '菜单列表'
+    },
+    role: {
+      list: '角色列表'
     }
   },
   navbar: {
@@ -55,5 +61,13 @@ export default {
     email: '邮箱',
     address: '地址',
     userface: '用户头像'
+  },
+  menulist: {
+    name: '菜单编码',
+    nameZh: '菜单中文名称',
+    path: '路径',
+    component: '容器名称',
+    iconCls: '图标',
+    parent: '父节点'
   }
 }

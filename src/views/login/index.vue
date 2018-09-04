@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login-content">
     <vue-particles
       color="#bebebe"
       :particleOpacity="0.7"
@@ -93,14 +93,19 @@ export default{
   body {
     /*background-image: url('../../assets/image/p_02.jpg');*/
   }
+  .login-content {
+  }
+
   .login-container {
     position: absolute;
-    top: 30%;
-    left: 40%;
+    top: 50%;
+    left: 50%;
+    margin-left: -175px;
+    margin-top: -175px;
     border-radius: 15px;
     background-clip: padding-box;
-    margin: 0 auto;
     width: 350px;
+    height: 350px;
     padding: 35px 35px 15px 35px;
     background: rgba(255 ,215, 215, .15);
     border: 1px solid #eaeaea;
