@@ -1,11 +1,5 @@
-FROM node:6.40.3-slim
-RUN apt-get update \
-		&& apt-get install -y nginx
-WORKDIR /app
-COPY ./app/
-EXPOSE 80
-RUN npm install \ 
-		&& npm run build \
-		&& cp -r dist/* /var/www/html \
-		&& rm -rf /app
-CMD ["nginx","-g","daemon off;"]
+FROM nginx
+MAINTAINER liugy
+RUN rm /etc/nginx/conf.d/default.conf
+ADD default.conf /etc/nginx/conf.d/
+COPY dist/ /usr/share/nginx/html/
