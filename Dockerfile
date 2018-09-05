@@ -1,5 +1,5 @@
 FROM nginx
 MAINTAINER liugy
-RUN rm /etc/nginx/conf.d/default.conf
-ADD default.conf /etc/nginx/conf.d/
+RUN rm /usr/local/nginx/conf/nginx.conf
+ADD default.conf /usr/local/nginx/conf/
 COPY dist/ /usr/share/nginx/html/
